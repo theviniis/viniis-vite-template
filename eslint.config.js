@@ -6,7 +6,7 @@ import globals from "globals";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
-	{ ignores: ["dist"] },
+	{ ignores: ["dist", ".jest/**/**/*"] },
 	{
 		extends: [js.configs.recommended, ...tseslint.configs.recommended, prettier],
 		files: ["**/*.{ts,tsx}"],
@@ -21,11 +21,6 @@ export default tseslint.config(
 		rules: {
 			...reactHooks.configs.recommended.rules,
 			"react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
-			"react-hooks/rules-of-hooks": "error",
-			"react-hooks/exhaustive-deps": "warn",
-			"react/prop-types": "off",
-			"react/react-in-jsx-scope": "off",
-			"@typescript-eslint/explicit-module-boundary-types": "off",
 		},
-	}
+	},
 );
